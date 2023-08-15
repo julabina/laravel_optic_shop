@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('ocular_attributes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id')->index('product_id');
-            $table->unsignedBigInteger('brand_id')->index('brand_id');
             $table->enum('model', [
                 'Plössl', 
                 'Super Plössl',

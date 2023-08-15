@@ -8,13 +8,13 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class OcularAttribute
  * 
  * @property int $id
  * @property int $product_id
- * @property int $brand_id
  * @property string $model
  * @property int $focalLength
  * @property int $fov
@@ -27,11 +27,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class OcularAttribute extends Model
 {
+	use HasFactory;
+	
 	protected $table = 'ocular_attributes';
 
 	protected $casts = [
 		'product_id' => 'int',
-		'brand_id' => 'int',
 		'focalLength' => 'int',
 		'fov' => 'int',
 		'eyeRelief' => 'int',

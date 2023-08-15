@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Product;
-use App\Models\Brand;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,7 +19,6 @@ class OcularAttributeFactory extends Factory
     {
         return [
             'product_id' => Product::factory(),
-            'brand_id' => Brand::factory(),
             'focalLength' => 12,
             'fov' => 68,
             'eyeRelief' => 18,

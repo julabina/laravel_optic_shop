@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Brand;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,8 +19,9 @@ class ProductFactory extends Factory
     {
         return [
             'name' => fake()->word(),
-            'price' => fake()->int(['min' => 10, 'max' => 1000]),
-            'stock' => fake()->int(['min' => 1, 'max' => 50]),
+            'price' => 100,
+            'stock' => 4,
+            'brand_id' => Brand::factory(),
             'discountValue' => 20,
         ];
     }

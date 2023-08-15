@@ -18,7 +18,7 @@ return new class extends Migration
                 'azimutale', 
                 'equatoriale',
             ])->default('azimutale');
-            $table->integer('capacity');
+            $table->float('capacity', 10, 0);
             $table->boolean('goto')->default(false);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

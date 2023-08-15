@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class CompanyInfo
@@ -26,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class CompanyInfo extends Model
 {
+	use HasFactory;
+	
 	protected $table = 'company_infos';
 
 	protected $casts = [

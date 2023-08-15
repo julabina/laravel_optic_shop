@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class MountAttribute
@@ -24,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class MountAttribute extends Model
 {
+	use HasFactory;
+	
 	protected $table = 'mount_attributes';
 
 	protected $casts = [
