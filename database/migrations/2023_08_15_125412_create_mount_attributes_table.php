@@ -11,18 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('mount_attributes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('email')->unique();
-            $table->string('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('mobile')->nullable();
-            $table->string('remember_token')->nullable();
+            $table->unsignedBigInteger('product_id')->index('product_id');
+            $table->enum('type', [
+                'azimutale', 
+                'equatoriale',
+            ])->default('azimutale');
+            $table->integer('capacity');
+            $table->boolean('goto')->default(false);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->softDeletes();
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('mount_attributes');
     }
 };
