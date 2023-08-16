@@ -7,12 +7,12 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class CompanyInfo
- * 
+ *
  * @property int $id
  * @property int $user_id
  * @property string $name
@@ -22,26 +22,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $siret
  * @property Carbon $created_at
  * @property Carbon $updated_at
- *
- * @package App\Models
  */
 class CompanyInfo extends Model
 {
-	use HasFactory;
-	
-	protected $table = 'company_infos';
+    use HasFactory;
 
-	protected $casts = [
-		'user_id' => 'int',
-		'vatFree' => 'bool'
-	];
+    protected $table = 'company_infos';
 
-	protected $fillable = [
-		'user_id',
-		'name',
-		'fax',
-		'vatFree',
-		'vat',
-		'siret'
-	];
+    protected $casts = [
+        'user_id' => 'int',
+        'vatFree' => 'bool',
+    ];
+
+    protected $fillable = [
+        'user_id',
+        'name',
+        'fax',
+        'vatFree',
+        'vat',
+        'siret',
+    ];
 }

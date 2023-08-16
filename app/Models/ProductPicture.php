@@ -7,32 +7,30 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ProductPicture
- * 
+ *
  * @property int $id
  * @property int $product_id
  * @property string $path
  * @property Carbon $created_at
  * @property Carbon $updated_at
- *
- * @package App\Models
  */
 class ProductPicture extends Model
 {
-	use HasFactory;
-	
-	protected $table = 'product_pictures';
+    use HasFactory;
 
-	protected $casts = [
-		'product_id' => 'int'
-	];
+    protected $table = 'product_pictures';
 
-	protected $fillable = [
-		'product_id',
-		'path'
-	];
+    protected $casts = [
+        'product_id' => 'int',
+    ];
+
+    protected $fillable = [
+        'product_id',
+        'path',
+    ];
 }

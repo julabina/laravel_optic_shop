@@ -21,7 +21,7 @@ class CompanyInfoFactory extends Factory
             'user_id' => User::factory(),
             'name' => fake()->word(),
             'vatFree' => true,
-            'siret' => '123456789'
+            'siret' => '123456789',
         ];
     }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('brand_id')->index('brand_id');
             $table->enum('category', [
-                'telescope', 
+                'telescope',
                 'mount',
                 'ocular',
             ])->default('telescope');

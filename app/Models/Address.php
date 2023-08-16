@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Address
- * 
+ *
  * @property int $id
  * @property int $user_id
  * @property string $address1
@@ -27,32 +27,30 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool $isCompany
  * @property Carbon $created_at
  * @property Carbon $updated_at
- *
- * @package App\Models
  */
 class Address extends Model
 {
-	use HasFactory;
-	
-	protected $table = 'addresses';
+    use HasFactory;
 
-	protected $casts = [
-		'user_id' => 'int',
-		'deliverySameAddress' => 'bool',
-		'isCompany' => 'bool'
-	];
+    protected $table = 'addresses';
 
-	protected $fillable = [
-		'user_id',
-		'address1',
-		'address2',
-		'postalcode',
-		'city',
-		'deliverySameAddress',
-		'deliveryAddress1',
-		'deliveryAddress2',
-		'deliveryPostalcode',
-		'deliveryCity',
-		'isCompany'
-	];
+    protected $casts = [
+        'user_id' => 'int',
+        'deliverySameAddress' => 'bool',
+        'isCompany' => 'bool',
+    ];
+
+    protected $fillable = [
+        'user_id',
+        'address1',
+        'address2',
+        'postalcode',
+        'city',
+        'deliverySameAddress',
+        'deliveryAddress1',
+        'deliveryAddress2',
+        'deliveryPostalcode',
+        'deliveryCity',
+        'isCompany',
+    ];
 }

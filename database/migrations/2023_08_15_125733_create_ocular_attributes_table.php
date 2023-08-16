@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id')->index('product_id');
             $table->enum('model', [
-                'Plössl', 
+                'Plössl',
                 'Super Plössl',
                 'DeLite',
                 'Lanthanum',

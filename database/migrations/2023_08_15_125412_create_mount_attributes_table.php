@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id')->index('product_id');
             $table->enum('type', [
-                'azimutale', 
+                'azimutale',
                 'equatoriale',
             ])->default('azimutale');
             $table->float('capacity', 10, 0);

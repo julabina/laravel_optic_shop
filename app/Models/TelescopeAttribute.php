@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class TelescopeAttribute
- * 
+ *
  * @property int $id
  * @property int $product_id
  * @property string $type
@@ -21,26 +21,24 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $mount
  * @property Carbon $created_at
  * @property Carbon $updated_at
- *
- * @package App\Models
  */
 class TelescopeAttribute extends Model
 {
-	use HasFactory;
-	
-	protected $table = 'telescope_attributes';
+    use HasFactory;
 
-	protected $casts = [
-		'product_id' => 'int',
-		'diameter' => 'int',
-		'focalLength' => 'int'
-	];
+    protected $table = 'telescope_attributes';
 
-	protected $fillable = [
-		'product_id',
-		'type',
-		'diameter',
-		'focalLength',
-		'mount'
-	];
+    protected $casts = [
+        'product_id' => 'int',
+        'diameter' => 'int',
+        'focalLength' => 'int',
+    ];
+
+    protected $fillable = [
+        'product_id',
+        'type',
+        'diameter',
+        'focalLength',
+        'mount',
+    ];
 }

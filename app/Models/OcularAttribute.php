@@ -7,12 +7,12 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class OcularAttribute
- * 
+ *
  * @property int $id
  * @property int $product_id
  * @property string $model
@@ -22,30 +22,28 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property int $size
  * @property Carbon $created_at
  * @property Carbon $updated_at
- *
- * @package App\Models
  */
 class OcularAttribute extends Model
 {
-	use HasFactory;
-	
-	protected $table = 'ocular_attributes';
+    use HasFactory;
 
-	protected $casts = [
-		'product_id' => 'int',
-		'focalLength' => 'int',
-		'fov' => 'int',
-		'eyeRelief' => 'int',
-		'size' => 'int'
-	];
+    protected $table = 'ocular_attributes';
 
-	protected $fillable = [
-		'product_id',
-		'brand_id',
-		'model',
-		'focalLength',
-		'fov',
-		'eyeRelief',
-		'size'
-	];
+    protected $casts = [
+        'product_id' => 'int',
+        'focalLength' => 'int',
+        'fov' => 'int',
+        'eyeRelief' => 'int',
+        'size' => 'int',
+    ];
+
+    protected $fillable = [
+        'product_id',
+        'brand_id',
+        'model',
+        'focalLength',
+        'fov',
+        'eyeRelief',
+        'size',
+    ];
 }

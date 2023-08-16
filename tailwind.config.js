@@ -13,8 +13,16 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Roboto', 'sans-serif', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                primary: '#14416A',
+                secondary : '#14416A',
+                tertiary : '#FF0000',
+                greenValidate: '#74c13b',
+                searchBtn: '#1a1c17',
+                searchInput: 'rgba(255, 255, 255, 0.226)'
+            }
         },
     },
 

@@ -18,8 +18,9 @@ test('profile information can be updated', function () {
     $response = $this
         ->actingAs($user)
         ->patch('/profile', [
-            'name' => 'Test User',
             'email' => 'test@example.com',
+            'firstname' => 'John',
+            'lastname' => 'Doe',
         ]);
 
     $response
@@ -28,7 +29,8 @@ test('profile information can be updated', function () {
 
     $user->refresh();
 
-    $this->assertSame('Test User', $user->name);
+    $this->assertSame('John', $user->firstname);
+    $this->assertSame('Doe', $user->lastname);
     $this->assertSame('test@example.com', $user->email);
     $this->assertNull($user->email_verified_at);
 });
@@ -39,7 +41,7 @@ test('email verification status is unchanged when the email address is unchanged
     $response = $this
         ->actingAs($user)
         ->patch('/profile', [
-            'name' => 'Test User',
+            'lastname' => 'Doe',
             'email' => $user->email,
         ]);
 
@@ -56,7 +58,7 @@ test('user can delete their account', function () {
     $response = $this
         ->actingAs($user)
         ->delete('/profile', [
-            'password' => 'password',
+            'password' => 'Azerty123',
         ]);
 
     $response

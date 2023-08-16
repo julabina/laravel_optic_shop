@@ -3,14 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\User;
 use App\Models\Brand;
+use App\Models\MountAttribute;
+use App\Models\OcularAttribute;
 use App\Models\Product;
 use App\Models\ProductDescription;
 use App\Models\ProductPicture;
 use App\Models\TelescopeAttribute;
-use App\Models\OcularAttribute;
-use App\Models\MountAttribute;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $mock = json_decode(file_get_contents(storage_path() . "/mock-products.json"), true);
+        $mock = json_decode(file_get_contents(storage_path().'/mock-products.json'), true);
         //dd(count($mock['products']), count($mock['productsAttributes']));
         $user = User::factory()->create([
             'firstname' => 'Bob',
@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
 
         //CREATE PRODUCTS
 
-        for ($i=0; $i < count($mock['products']); $i++) { 
+        for ($i = 0; $i < count($mock['products']); $i++) {
             $product = Product::factory()->create([
                 'name' => $mock['products'][$i]['name'],
                 'price' => $mock['products'][$i]['price'],
@@ -79,27 +79,27 @@ class DatabaseSeeder extends Seeder
                     'product_id' => $product->id,
                     'path' => $picture,
                 ]);
-            };
+            }
 
             ProductDescription::factory()->create([
                 'product_id' => $product->id,
                 'description' => $mock['products'][$i]['description1'],
             ]);
-            
+
             if ($mock['products'][$i]['description2'] !== null) {
                 ProductDescription::factory()->create([
                     'product_id' => $product->id,
                     'description' => $mock['products'][$i]['description2'],
                 ]);
             }
-            
+
             if ($mock['products'][$i]['descriptionPicture'] !== null) {
                 ProductDescription::factory()->create([
                     'product_id' => $product->id,
                     'picturePath' => $mock['products'][$i]['descriptionPicture'],
                 ]);
             }
-            
+
             if ($mock['products'][$i]['description3'] !== null) {
                 ProductDescription::factory()->create([
                     'product_id' => $product->id,
@@ -115,13 +115,13 @@ class DatabaseSeeder extends Seeder
                     'focalLength' => $mock['productsAttributes'][$i]['focal'],
                     'mount' => $mock['productsAttributes'][$i]['mount'],
                 ]);
-            } else if ($mock['products'][$i]['category'] === 'mount') {
+            } elseif ($mock['products'][$i]['category'] === 'mount') {
                 MountAttribute::factory()->create([
                     'product_id' => $product->id,
                     'type' => $mock['productsAttributes'][$i]['mountType'],
                     'capacity' => $mock['productsAttributes'][$i]['capacity'],
                     'goto' => $mock['productsAttributes'][$i]['goTo'],
-                ]); 
+                ]);
             } else {
                 OcularAttribute::factory()->create([
                     'product_id' => $product->id,
@@ -130,7 +130,7 @@ class DatabaseSeeder extends Seeder
                     'fov' => $mock['productsAttributes'][$i]['fov'],
                     'eyeRelief' => $mock['productsAttributes'][$i]['eyeRelief'],
                     'size' => $mock['productsAttributes'][$i]['coulant'],
-                ]); 
+                ]);
             }
         }
     }

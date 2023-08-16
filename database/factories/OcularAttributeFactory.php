@@ -22,7 +22,7 @@ class OcularAttributeFactory extends Factory
             'focalLength' => 12,
             'fov' => 68,
             'eyeRelief' => 18,
-            'size' => 32
+            'size' => 32,
         ];
     }
 }
