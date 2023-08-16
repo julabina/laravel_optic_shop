@@ -13,9 +13,9 @@ const showingNavigationDropdown = ref(false);
 
 <template>
     <div>
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen">
             <!-- Page Heading -->
-            <header v-if="$slots.header">
+            <header v-if="$slots.header" class="sticky flex flex-col items-center bg-primary -top-32 z-20">
                 <Header/>
                 <slot name="header" />
             </header>

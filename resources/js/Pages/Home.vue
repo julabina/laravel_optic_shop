@@ -6,6 +6,7 @@
 
         </template>
 
+        <section class="h-[4000px]"></section>
             
     </AuthenticatedLayout>
 </template>
