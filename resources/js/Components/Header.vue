@@ -11,6 +11,25 @@
                     <i class="fa-solid fa-magnifying-glass text-white text-xl"></i>
                 </div>
             </div>
+            <div class="flex border-l border-white border-opacity-50">
+                <div class="flex flex-col items-center justify-between py-1 border-r border-white border-opacity-50 h-12 w-24 text-sm text-white cursor-pointer transition-colors hover:transition-colors hover:text-tertiary">
+                    <i class="fa-solid fa-home"></i>
+                    <p class="uppercase">Accueil</p>
+                </div>
+                <div class="flex flex-col items-center justify-between py-1 border-r border-white border-opacity-50 h-12 w-24 text-sm text-white cursor-pointer transition-colors hover:transition-colors hover:text-tertiary">
+                    <i class="fa-solid fa-user"></i>
+                    <p class="uppercase">Connexion</p>
+                </div>
+                <div class="flex flex-col items-center justify-between py-1 border-r border-white border-opacity-50 h-12 w-24 text-sm text-white cursor-pointer transition-colors hover:transition-colors hover:text-tertiary">
+                    <i class="fa-solid fa-pen"></i>
+                    <p class="uppercase">Contact</p>
+                </div>
+                <div class="relative flex flex-col items-center justify-between py-1 border-r border-white border-opacity-50 h-12 w-24 text-sm text-white cursor-pointer transition-colors hover:transition-colors hover:text-tertiary">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p class="uppercase">600.00 €</p>
+                    <p class="flex justify-center items-center absolute w-4 h-4 bg-tertiary rounded-full top-0 right-4 text-[0.65rem] font-bold text-white">10</p>
+                </div>
+            </div>
         </section>
         <section>
 
