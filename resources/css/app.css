@@ -12,4 +12,8 @@
     .text-error {
         @apply text-red-600 text-sm mt-2;
     }
+
+    .btn-primary {
+        @apply h-9 bg-primary text-white rounded-sm uppercase font-semibold text-xs tracking-wider mx-1 transition-opacity hover:transition-opacity hover:opacity-70;
+    }
 }

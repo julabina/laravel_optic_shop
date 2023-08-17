@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('brand_id')->index('brand_id');
             $table->enum('category', [
                 'telescope',
-                'mount',
-                'ocular',
+                'monture',
+                'oculaire',
             ])->default('telescope');
             $table->string('name');
             $table->float('price', 10, 0);

@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -45,4 +46,12 @@ class Product extends Model
         'onDiscount',
         'discountValue',
     ];
+
+    /**
+     * @return HasMany<ProductPicture>
+     */
+    public function picture(): HasMany
+    {
+        return $this->hasMany(ProductPicture::class);
+    }
 }

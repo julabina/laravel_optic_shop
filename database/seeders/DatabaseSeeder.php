@@ -115,7 +115,7 @@ class DatabaseSeeder extends Seeder
                     'focalLength' => $mock['productsAttributes'][$i]['focal'],
                     'mount' => $mock['productsAttributes'][$i]['mount'],
                 ]);
-            } elseif ($mock['products'][$i]['category'] === 'mount') {
+            } elseif ($mock['products'][$i]['category'] === 'monture') {
                 MountAttribute::factory()->create([
                     'product_id' => $product->id,
                     'type' => $mock['productsAttributes'][$i]['mountType'],

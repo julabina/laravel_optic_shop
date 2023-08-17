@@ -300,7 +300,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Celestron X-Cel LX 25mm",
             "pictures" : ["oculaire/x-cel-25.webp"],
             "price": 125,
@@ -313,7 +313,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Celestron X-Cel LX 18mm",
             "pictures" : ["oculaire/x-cel-18.webp"],
             "price": 125,
@@ -326,7 +326,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Celestron X-Cel LX 7mm",
             "pictures" : ["oculaire/x-cel-7.webp"],
             "price": 125,
@@ -339,7 +339,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Plössl TeleVue 25mm",
             "pictures" : ["oculaire/Plössl-TeleVue-25.webp"],
             "price": 144,
@@ -352,7 +352,7 @@
             "promoValue" : 5
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Plössl TeleVue 15mm",
             "pictures" : ["oculaire/Plössl-TeleVue-15.webp"],
             "price": 112,
@@ -365,7 +365,7 @@
             "promoValue" : 5
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Plössl TeleVue 8mm",
             "pictures" : ["oculaire/Plössl-TeleVue-8.webp"],
             "price": 112,
@@ -378,7 +378,7 @@
             "promoValue" : 5    
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Orion Edge-On 12,5mm",
             "pictures" : ["oculaire/orion-edge-12.webp"],
             "price": 99,
@@ -391,7 +391,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Orion Edge-On 3mm",
             "pictures" : ["oculaire/orion-edge-3.webp"],
             "price": 99,
@@ -404,7 +404,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Sky-Watcher WA Super Plössl 15mm 58°",
             "pictures" : ["oculaire/sw-super-Plössl-15.webp"],
             "price": 74,
@@ -417,7 +417,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Sky-Watcher WA Super Plössl 25mm 58°",
             "pictures" : ["oculaire/sw-super-Plössl-25.webp"],
             "price": 74,
@@ -430,7 +430,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Sky-Watcher WA Super Plössl 9mm 58°",
             "pictures" : ["oculaire/sw-super-Plössl-9.webp"],
             "price": 72,
@@ -443,7 +443,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire TeleVue DeLite 18,2mm",
             "pictures" : ["oculaire/televue-delite-18.webp"],
             "price": 320,
@@ -456,7 +456,7 @@
             "promoValue" : 15
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire TeleVue DeLite 7mm",
             "pictures" : ["oculaire/televue-delite-7.webp"],
             "price": 320,
@@ -469,7 +469,7 @@
             "promoValue" : 15
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire TeleVue Ethos 21mm",
             "pictures" : ["oculaire/ethos-21.webp"],
             "price": 1034,
@@ -482,7 +482,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire TeleVue Ethos 8mm",
             "pictures" : ["oculaire/ethos-8.webp"],
             "price": 758,
@@ -495,7 +495,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire TeleVue Nagler 7mm Type 6",
             "pictures" : ["oculaire/nagler-7.webp"],
             "price": 387,
@@ -508,7 +508,7 @@
             "promoValue" : 5
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire TeleVue Nagler 13mm Type 6",
             "pictures" : ["oculaire/nagler-13.webp"],
             "price": 387,
@@ -521,7 +521,7 @@
             "promoValue" : 5
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire TeleVue Nagler 31mm Type 5",
             "pictures" : ["oculaire/nagler-31.webp"],
             "price": 804,
@@ -534,7 +534,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire TeleVue Nagler 22mm Type 4",
             "pictures" : ["oculaire/nagler-22.webp"],
             "price": 566,
@@ -547,7 +547,7 @@
             "promoValue" : 5
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire TeleVue Delos 4,5mm",
             "pictures" : ["oculaire/delos-4.webp"],
             "price": 450,
@@ -560,7 +560,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire TeleVue Delos 14mm",
             "pictures" : ["oculaire/delos-14.webp"],
             "price": 450,
@@ -573,7 +573,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Pentax XW-14mm",
             "pictures" : ["oculaire/pentax-xw-14.webp"],
             "price": 370,
@@ -586,7 +586,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Pentax XW-7mm",
             "pictures" : ["oculaire/pentax-xw-7.webp"],
             "price": 370,
@@ -599,7 +599,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire 100° Explore Scientific 5,5mm",
             "pictures" : ["oculaire/es-100-5.webp"],
             "price": 342,
@@ -612,7 +612,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire 82° Explore Scientific 24mm",
             "pictures" : ["oculaire/es-82-24.webp"],
             "price": 299,
@@ -625,7 +625,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire 82° Explore Scientific 6.7mm",
             "pictures" : ["oculaire/es-82-6.webp"],
             "price": 172,
@@ -638,7 +638,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire 82° Explore Scientific 30mm",
             "pictures" : ["oculaire/es-82-30.webp"],
             "price": 355,
@@ -651,7 +651,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire 82° Explore Scientific 18mm",
             "pictures" : ["oculaire/es-82-18.webp"],
             "price": 201,
@@ -664,7 +664,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire 68° Explore Scientific 24mm",
             "pictures" : ["oculaire/es-68-24.webp"],
             "price": 186,
@@ -677,7 +677,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire 68° Explore Scientific 20mm",
             "pictures" : ["oculaire/es-68-20.webp"],
             "price": 152,
@@ -690,7 +690,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Celestron Luminos 31mm",
             "pictures" : ["oculaire/luminos-31.webp"],
             "price": 357,
@@ -703,7 +703,7 @@
             "promoValue" : 15
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Celestron Luminos 7mm",
             "pictures" : ["oculaire/luminos-7.webp"],
             "price": 179,
@@ -716,7 +716,7 @@
             "promoValue" : 10
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Celestron Luminos 15mm",
             "pictures" : ["oculaire/luminos-15.webp"],
             "price": 179,
@@ -729,7 +729,7 @@
             "promoValue" : 10
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Orion Lanthanum 6mm",
             "pictures" : ["oculaire/lanthanum-6.webp"],
             "price": 299,
@@ -742,7 +742,7 @@
             "promoValue" : 25
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Orion Lanthanum 14mm",
             "pictures" : ["oculaire/lanthanum-14.webp"],
             "price": 299,
@@ -755,7 +755,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Orion Lanthanum 20mm",
             "pictures" : ["oculaire/lanthanum-20.webp"],
             "price": 299,
@@ -768,7 +768,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Baader Hyperion 24mm",
             "pictures" : ["oculaire/baader-24.webp"],
             "price": 154,
@@ -781,7 +781,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Baader Hyperion 17mm",
             "pictures" : ["oculaire/baader-17.webp"],
             "price": 154,
@@ -794,7 +794,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "ocular",
+            "category" : "oculaire",
             "name": "Oculaire Baader Hyperion 8mm",
             "pictures" : ["oculaire/baader-8.webp"],
             "price": 154,
@@ -807,7 +807,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture Sky-Watcher Allview Go-To",
             "pictures" : ["monture/sw-allView-1.webp", "monture/sw-allView-2.webp", "monture/sw-allView-3.webp"],
             "price": 532,
@@ -820,7 +820,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture azimutale AZ4 Sky-Watcher",
             "pictures" : ["monture/az4.webp"],
             "price": 200,
@@ -833,7 +833,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture azimutale Sky-Watcher Star Discovery WiFi",
             "pictures" : ["monture/starDiscovery-1.webp", "monture/starDiscovery-2.webp", "monture/starDiscovery-3.webp"],
             "price": 429,
@@ -846,7 +846,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture azimutale AZ3 Sky-Watcher",
             "pictures" : ["monture/az3.webp"],
             "price": 129,
@@ -859,7 +859,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale 10Micron GM1000 HPS",
             "pictures" : ["monture/gm1000-1.webp", "monture/gm1000-2.webp", "monture/gm1000-3.webp"],
             "price": 10840,
@@ -872,7 +872,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale 10Micron GM4000 HPS",
             "pictures" : ["monture/gm4000.webp"],
             "price": 27000,
@@ -885,7 +885,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Sky-Watcher EQ8-RH",
             "pictures" : ["monture/eq8-rh-1.webp", "monture/eq8-rh-2.webp", "monture/eq8-rh-3.webp"],
             "price": 7999,
@@ -898,7 +898,7 @@
             "promoValue" : 5
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Celestron CGX-L",
             "pictures" : ["monture/cgx-l-1.webp", "monture/cgx-l-2.webp", "monture/cgx-l-3.webp"],
             "price": 4299,
@@ -911,7 +911,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Celestron CGX",
             "pictures" : ["monture/cgx-1.webp", "monture/cgx-2.webp", "monture/cgx-3.webp"],
             "price": 3199,
@@ -924,7 +924,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Celestron CGEM II",
             "pictures" : ["monture/cgem-1.webp", "monture/cgem-2.webp", "monture/cgem-3.webp"],
             "price": 2120,
@@ -937,7 +937,7 @@
             "promoValue" : 5
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Sky-Watcher AZEQ6 Pro Go-To",
             "pictures" : ["monture/azeq6-pro.webp"],
             "price": 2179,
@@ -950,7 +950,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Sky-Watcher NEQ6 Pro Go-To",
             "pictures" : ["monture/neq6-pro.webp"],
             "price": 1555,
@@ -963,7 +963,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Celestron Advanced VX",
             "pictures" : ["monture/vx-1.webp", "monture/vx-2.webp", "monture/vx-3.webp"],
             "price": 1299,
@@ -976,7 +976,7 @@
             "promoValue" : 10
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Orion SkyView Pro Goto",
             "pictures" : ["monture/skyView.webp"],
             "price": 830,
@@ -989,7 +989,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Sky-Watcher HEQ5 Pro Go-To",
             "pictures" : ["monture/heq5-1.webp", "monture/heq5-2.webp", "monture/heq5-3.webp"],
             "price": 1200,
@@ -1002,7 +1002,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Sky-Watcher NEQ3-2 Pro Go-To",
             "pictures" : ["monture/neq3-2-pro-1.webp", "monture/neq3-2-pro-2.webp", "monture/neq3-2-pro-3.webp"],
             "price": 730,
@@ -1015,7 +1015,7 @@
             "promoValue" : 15
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Sky-Watcher NEQ5",
             "pictures" : ["monture/neq5-1.webp", "monture/neq5-2.webp", "monture/neq5-3.webp"],
             "price": 405,
@@ -1028,7 +1028,7 @@
             "promoValue" : 0
         },
         {
-            "category" : "mount",
+            "category" : "monture",
             "name": "Monture équatoriale Sky-Watcher NEQ3-2",
             "pictures" : ["monture/neq3-2-1.webp", "monture/neq3-2-2.webp", "monture/neq3-2-3.webp"],
             "price": 325,
