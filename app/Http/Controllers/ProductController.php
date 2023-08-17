@@ -2,23 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Product;
 use Inertia\Response;
 
 class ProductController extends Controller
 {
-    public function list(String $cat)
+    public function list(string $cat): Response
     {
-        return Inertia::render('ProductList');
+        $products = Product::where('category', $cat)->with('picture')->get();
+
+        return Inertia::render('ProductList', [
+            'category' => $cat,
+            'products' => $products,
+        ]);
     }
-    
-    public function show(String $cat, Int $id)
+
+    public function show(string $cat, int $id): Response
     {
         return Inertia::render('Product');
     }
-    
-    public function discountList()
+
+    public function discountList(): Response
     {
         return Inertia::render('discountList');
     }
