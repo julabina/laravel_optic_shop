@@ -32,7 +32,6 @@
     });
     
     onMounted(() => {
-        console.log(props.product);
         if (props.product.onDiscount === true) {
             discount.value = true;
             price.value = props.product.price - ((props.product.price / 100)*props.product.discountValue);

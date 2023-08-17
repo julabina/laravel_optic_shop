@@ -54,8 +54,13 @@
             </Link>
         </section>
         
-        <section class="flex flex-col items-center mt-16">
+        <section class="flex flex-col items-center mt-16 mb-24">
             <h1 class="text-3xl font-bold mb-11 text-center uppercase">Nos partenaires</h1>
+            <div class="flex items-center h-24">
+                <img src="/images/brands/skywatcher.svg" alt="" class="h-20 mb-5">
+                <img src="/images/brands/celestron.svg" alt="" class="h-6 mx-5">
+                <img src="/images/brands/es.svg" alt="" class="h-14 mx-5">
+            </div>
         </section>
     </AuthenticatedLayout>
 </template>
