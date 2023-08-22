@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\FilterProductsService;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\Product;
 use Inertia\Response;
 
 class ProductController extends Controller
 {
-    public function list(string $cat): Response
+    public function list(string $cat, Request $request): Response
     {
-        $products = Product::where('category', $cat)->with('picture')->get();
+        $filterService = new FilterProductsService();
+
+        $products = $filterService->filter($cat, [], false);
 
         return Inertia::render('ProductList', [
             'category' => $cat,

@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Class Product
@@ -53,5 +54,29 @@ class Product extends Model
     public function picture(): HasMany
     {
         return $this->hasMany(ProductPicture::class);
+    }
+
+    /**
+     * @return HasOne<TelescopeAttribute>
+     */
+    public function telescope_attribute(): HasOne
+    {
+        return $this->hasOne(TelescopeAttribute::class);
+    }
+
+    /**
+     * @return HasOne<MountAttribute>
+     */
+    public function mount_attribute(): HasOne
+    {
+        return $this->hasOne(MountAttribute::class);
+    }
+
+    /**
+     * @return HasOne<OcularAttribute>
+     */
+    public function ocular_attribute(): HasOne
+    {
+        return $this->hasOne(OcularAttribute::class);
     }
 }
