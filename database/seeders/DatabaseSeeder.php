@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         //CREATE BRANDS
 
         Brand::factory()->create([
-            'name' => 'Sky-Watcher',
+            'name' => 'Skywatcher',
         ]);
         Brand::factory()->create([
             'name' => 'Takahashi',

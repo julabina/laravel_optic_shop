@@ -29,4 +29,5 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('/{cat}', [ProductController::class, 'list'])->name('product.list');
+Route::post('/{cat}', [ProductController::class, 'filter'])->name('product.filter');
 Route::get('/{cat}/{id}', [ProductController::class, 'show'])->name('product.show');

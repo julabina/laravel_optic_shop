@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Product;
+use App\Models\Brand;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -28,7 +29,7 @@ class FilterProductsService
         $onStock = $onStock;
 
         if (count($brandArr) > 0) {
-            $brand = $brandArr;
+            $brand = Brand::select('id')->whereIn('name', $brandArr)->get()->toArray();
         }
 
         $products = Product::where('category', $cat)->when($brand, function (Builder $query, array $brand) {
@@ -36,7 +37,7 @@ class FilterProductsService
         })->when($onStock, function (Builder $query, bool $onStock) {
             $query->where('stock', '>', 0);
         })->with('picture', $attribute)->get();
-
+        
         return $products;
     }
 }
