@@ -58,7 +58,9 @@
                         <img v-else :src="'/products/' + desc.picturePath" :alt="'photo de presentation de ' + product.name" class="my-6 max-w-[900px]">
                     </div>
                 </div>
-                <div v-if="currentTab === 2" class="flex flex-col items-center"></div>
+                <div v-if="currentTab === 2" class="flex flex-col items-center">
+                    <ProductStats :product="product" :category="category"/>
+                </div>
                 <div v-if="currentTab === 3" class="flex flex-col items-center"></div>
             </section>
         </div>
@@ -67,6 +69,7 @@
 </template>
 
 <script setup>
+    import ProductStats from '@/Components/ProductStats.vue';
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
     import { Head, Link } from '@inertiajs/vue3';
     import { ref, onMounted } from 'vue';

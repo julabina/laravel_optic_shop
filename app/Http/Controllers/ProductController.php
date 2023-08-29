@@ -54,7 +54,7 @@ class ProductController extends Controller
             $attribute = $cat.'_attribute';
         }
 
-        $product = Product::where('id', $id)->with('picture', $attribute, 'descriptions')->first();
+        $product = Product::where('id', $id)->with('picture', $attribute, 'descriptions', 'brand')->first();
 
         return Inertia::render('Product', [
             'product' => $product,

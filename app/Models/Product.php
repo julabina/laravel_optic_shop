@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 /**
  * Class Product
@@ -86,5 +88,13 @@ class Product extends Model
     public function ocular_attribute(): HasOne
     {
         return $this->hasOne(OcularAttribute::class);
+    }
+
+    /**
+     * @return BelongsTo<Brand, Product>
+     */
+    public function brand(): BelongsTo
+    {
+        return $this->belongsTo(Brand::class);
     }
 }
