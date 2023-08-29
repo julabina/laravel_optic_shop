@@ -21,7 +21,8 @@ export default {
                 tertiary : '#FF0000',
                 greenValidate: '#74c13b',
                 searchBtn: '#1a1c17',
-                searchInput: 'rgba(255, 255, 255, 0.226)'
+                searchInput: 'rgba(255, 255, 255, 0.226)',
+                grayTrans: 'rgba(128, 128, 128, 0.452)'
             }
         },
     },

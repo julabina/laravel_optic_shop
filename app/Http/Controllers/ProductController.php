@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -45,7 +46,20 @@ class ProductController extends Controller
 
     public function show(string $cat, int $id): Response
     {
-        return Inertia::render('Product');
+        if ($cat === 'monture') {
+            $attribute = 'mount_attribute';
+        } elseif ($cat === 'oculaire') {
+            $attribute = 'ocular_attribute';
+        } else {
+            $attribute = $cat.'_attribute';
+        }
+
+        $product = Product::where('id', $id)->with('picture', $attribute, 'descriptions')->first();
+
+        return Inertia::render('Product', [
+            'product' => $product,
+            'category' => $cat,
+        ]);
     }
 
     public function discountList(): Response

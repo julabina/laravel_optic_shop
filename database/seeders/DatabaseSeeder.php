@@ -96,6 +96,7 @@ class DatabaseSeeder extends Seeder
             if ($mock['products'][$i]['descriptionPicture'] !== null) {
                 ProductDescription::factory()->create([
                     'product_id' => $product->id,
+                    'description' => null,
                     'picturePath' => $mock['products'][$i]['descriptionPicture'],
                 ]);
             }

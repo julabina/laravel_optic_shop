@@ -55,6 +55,14 @@ class Product extends Model
     {
         return $this->hasMany(ProductPicture::class);
     }
+    
+    /**
+     * @return HasMany<ProductDescription>
+     */
+    public function descriptions(): HasMany
+    {
+        return $this->hasMany(ProductDescription::class);
+    }
 
     /**
      * @return HasOne<TelescopeAttribute>
