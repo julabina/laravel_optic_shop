@@ -1,5 +1,5 @@
 <template>
-    <footer class="flex justify-center h-80 bg-primary text-white pt-16">
+    <footer class="flex justify-center h-80 bg-primary text-white pt-16 mt-16">
         <div class="flex justify-between w-[1480px]">
             <Link :href="route('home')"><h2 class="text-3xl font-medium uppercase w-56">Laravel optic shop</h2></Link>   
             <section class="flex">

@@ -54,7 +54,7 @@
             </Link>
         </section>
         
-        <section class="flex flex-col items-center mt-16 mb-16">
+        <section class="flex flex-col items-center mt-16">
             <h1 class="text-3xl font-bold mb-11 text-center uppercase">Nos partenaires</h1>
             <div class="flex items-center h-24">
                 <a href="https://www.telescopes-et-accessoires.fr/PBSCCatalog.asp?BrandID=317068" rel="nooponer" target="_blank">

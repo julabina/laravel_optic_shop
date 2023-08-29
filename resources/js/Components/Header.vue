@@ -1,6 +1,8 @@
 <template>
     <section class="flex justify-between items-center w-[1480px] h-32">
-        <p class="font-bold text-3xl text-white uppercase">Laravel optique shop</p>
+        <Link :href="route('home')">
+            <p class="font-bold text-3xl text-white uppercase">Laravel optique shop</p>
+        </Link>
         <div class="flex">
             <div class="flex flex-col">
                 <input type="text" id="" class="h-10 w-80 rounded border-none bg-searchInput text-white text-sm pl-4 placeholder:text-gray-400" placeholder="Rechercher">

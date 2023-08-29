@@ -1043,7 +1043,7 @@
     ],
     "productsAttributes" : [
         {
-            "telescopeType": "lunette achromatique",
+            "telescopeType": "achromatique",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1054,7 +1054,7 @@
             "mount": "azimutale AZ2"
         },
         {
-            "telescopeType": "lunette achromatique",
+            "telescopeType": "achromatique",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1065,7 +1065,7 @@
             "mount": "azimutale AZ3"
         },
         {
-            "telescopeType": "lunette achromatique",
+            "telescopeType": "achromatique",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1076,7 +1076,7 @@
             "mount": "azimutale AZ3"
         },
         {
-            "telescopeType": "lunette apochromatique",
+            "telescopeType": "apochromatique",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1087,7 +1087,7 @@
             "mount": "équatoriale NEQ5"
         },
         {
-            "telescopeType": "lunette apochromatique",
+            "telescopeType": "apochromatique",
             "brand": 2,
             "mountType": null,
             "capacity": null,
@@ -1098,7 +1098,7 @@
             "mount": null
         },
         {
-            "telescopeType": "lunette apochromatique",
+            "telescopeType": "apochromatique",
             "brand": 2,
             "mountType": null,
             "capacity": null,
@@ -1109,7 +1109,7 @@
             "mount": null
         },
         {
-            "telescopeType": "telescope Newton",
+            "telescopeType": "newton",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1120,7 +1120,7 @@
             "mount": "équatoriale EQ2"
         },
         {
-            "telescopeType": "telescope Maksutov",
+            "telescopeType": "maksutov",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1131,7 +1131,7 @@
             "mount": "équatoriale EQ3-2"
         },
         {
-            "telescopeType": "telescope Newton",
+            "telescopeType": "newton",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1142,7 +1142,7 @@
             "mount": "équatoriale NEQ5"
         },
         {
-            "telescopeType": "telescope Schmidt-Cassegrain",
+            "telescopeType": "schmidt-Cassegrain",
             "brand": 3,
             "mountType": null,
             "capacity": null,
@@ -1153,7 +1153,7 @@
             "mount": "altazimutale monobras"
         },
         {
-            "telescopeType": "telescope Maksutov",
+            "telescopeType": "maksutov",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1164,7 +1164,7 @@
             "mount": "équatoriale NEQ6"
         },
         {
-            "telescopeType": "telescope Newton",
+            "telescopeType": "newton",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1175,7 +1175,7 @@
             "mount": "équatoriale AZ-EQ6"
         },
         {
-            "telescopeType": "telescope Newton",
+            "telescopeType": "newton",
             "brand": 4,
             "mountType": null,
             "capacity": null,
@@ -1186,7 +1186,7 @@
             "mount": "altazimutale monobras"
         },
         {
-            "telescopeType": "telescope Schmidt-Cassegrain",
+            "telescopeType": "schmidt-Cassegrain",
             "brand": 3,
             "mountType": null,
             "capacity": null,
@@ -1197,7 +1197,7 @@
             "mount": "altazimutale monobras"
         },
         {
-            "telescopeType": "telescope Schmidt-Cassegrain",
+            "telescopeType": "schmidt-Cassegrain",
             "brand": 3,
             "mountType": null,
             "capacity": null,
@@ -1208,7 +1208,7 @@
             "mount": "équatoriale CGX"
         },
         {
-            "telescopeType": "telescope Newton",
+            "telescopeType": "newton",
             "brand": 4,
             "mountType": null,
             "capacity": null,
@@ -1219,7 +1219,7 @@
             "mount": "altazimutale monobras"
         },
         {
-            "telescopeType": "telescope  edge HD",
+            "telescopeType": "edge HD",
             "brand": 3,
             "mountType": null,
             "capacity": null,
@@ -1230,7 +1230,7 @@
             "mount": "équatoriale CGX-L"
         },
         {
-            "telescopeType": "telescope Newton",
+            "telescopeType": "newton",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1241,7 +1241,7 @@
             "mount": "azimutale Dobson"
         },
         {
-            "telescopeType": "telescope Newton",
+            "telescopeType": "newton",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1252,7 +1252,7 @@
             "mount": "altazimutale Dobson"
         },
         {
-            "telescopeType": "telescope Newton",
+            "telescopeType": "newton",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1263,7 +1263,7 @@
             "mount": "altazimutale Dobson"
         },
         {
-            "telescopeType": "telescope Newton",
+            "telescopeType": "newton",
             "brand": 1,
             "mountType": null,
             "capacity": null,
@@ -1274,7 +1274,7 @@
             "mount": "altazimutale Dobson"
         },
         {
-            "telescopeType": "telescope Newton",
+            "telescopeType": "newton",
             "brand": 2,
             "mountType": null,
             "capacity": null,
@@ -1285,7 +1285,7 @@
             "mount": null
         },
         {
-            "telescopeType": "telescope Newton",
+            "telescopeType": "newton",
             "brand": 2,
             "mountType": null,
             "capacity": null,

@@ -15,13 +15,13 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id')->index('product_id');
             $table->enum('type', [
-                'telescope Schmidt-Cassegrain',
-                'lunette achromatique',
-                'lunette apochromatique',
-                'telescope Newton',
-                'telescope  edge HD',
-                'telescope Maksutov',
-            ])->default('telescope Newton');
+                'schmidt-Cassegrain',
+                'achromatique',
+                'apochromatique',
+                'newton',
+                'edge HD',
+                'maksutov',
+            ])->default('newton');
             $table->integer('diameter');
             $table->integer('focalLength');
             $table->string('mount')->nullable();

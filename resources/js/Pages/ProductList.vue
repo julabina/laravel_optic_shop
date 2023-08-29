@@ -79,6 +79,7 @@
     const productsFiltered = ref([]);
     const brands = ref([]);
     const brandsChecked = ref([]);
+    const modelsChecked = ref([]);
     const types = ref([]);
     const typesChecked = ref([]);
     const onStock = ref(false);
@@ -89,6 +90,7 @@
         products: Array,
         filterBrands: Array,
         filterOnStock: Boolean,
+        filterOther: Array,
     });
 
     onMounted(() => {
@@ -97,11 +99,20 @@
         if (props.category === 'telescope') {
             brands.value = ['skywatcher', 'takahashi', 'celestron', 'unistellar'];
             types.value = ['achromatique', 'apochromatique', 'newton', 'maksutov', 'edge HD', 'schmidt-Cassegrain'];
+            if (props.filterOther.length > 0) {
+                typesChecked.value = props.filterOther[0];
+            }
         } else if (props.category === 'oculaire') {
             brands.value = ['skywatcher', 'televue', 'celestron', 'orion', 'pentax', 'explore Scientific', 'baader']
         } else {
             brands.value = ['skywatcher', '10Micron', 'celestron', 'orion']
-            types.value = ['azimutale', 'equatorial'];
+            types.value = ['azimutale', 'equatoriale'];
+            if (props.filterOther[0] !== undefined) {
+                typesChecked.value = props.filterOther[0];
+            }
+            if (props.filterOther[1] !== undefined && (props.filterOther[1] === 'with' || props.filterOther[1] === 'not')) {
+                withGoto.value = props.filterOther[1];
+            }
         }
 
         if (props.filterBrands && props.filterBrands.length > 0) {
@@ -126,7 +137,17 @@
     };
 
     const filter = () => {
-        router.visit(route('product.filter', { cat: props.category, filterBrand: brandsChecked.value, onStock: onStock.value }), {
+        let other = [];
+        if (props.category === 'telescope') {
+            other.push(typesChecked.value);
+        } else if (props.category === 'oculaire') {
+            other.push(modelsChecked.value);
+        } else {
+            other.push(typesChecked.value);
+            other.push(withGoto.value);
+        }
+
+        router.visit(route('product.filter', { cat: props.category, filterBrand: brandsChecked.value, onStock: onStock.value, other: other }), {
             method: 'post',
         });
     };

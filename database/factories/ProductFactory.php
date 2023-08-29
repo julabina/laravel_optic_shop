@@ -19,7 +19,7 @@ class ProductFactory extends Factory
     {
         return [
             'name' => fake()->word(),
-            'price' => 100,
+            'price' => 100.50,
             'stock' => 4,
             'brand_id' => Brand::factory(),
             'discountValue' => 20,
