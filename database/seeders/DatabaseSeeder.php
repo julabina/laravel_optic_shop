@@ -31,31 +31,31 @@ class DatabaseSeeder extends Seeder
         //CREATE BRANDS
 
         Brand::factory()->create([
-            'name' => 'Skywatcher',
+            'name' => 'skywatcher',
         ]);
         Brand::factory()->create([
-            'name' => 'Takahashi',
+            'name' => 'takahashi',
         ]);
         Brand::factory()->create([
-            'name' => 'Celestron',
+            'name' => 'celestron',
         ]);
         Brand::factory()->create([
-            'name' => 'Unistellar',
+            'name' => 'unistellar',
         ]);
         Brand::factory()->create([
-            'name' => 'Televue',
+            'name' => 'televue',
         ]);
         Brand::factory()->create([
-            'name' => 'Orion',
+            'name' => 'orion',
         ]);
         Brand::factory()->create([
-            'name' => 'Pentax',
+            'name' => 'pentax',
         ]);
         Brand::factory()->create([
-            'name' => 'Explore Scientific',
+            'name' => 'explore Scientific',
         ]);
         Brand::factory()->create([
-            'name' => 'Baader',
+            'name' => 'baader',
         ]);
         Brand::factory()->create([
             'name' => '10Micron',

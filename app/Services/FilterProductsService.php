@@ -56,7 +56,6 @@ class FilterProductsService
                 foreach ($products as $key => $product) {
                     if (count($other[0]) > 0) {
                         if (in_array($product->mount_attribute->type, $other[0])) {
-                            //dd($product, $product->mount_attribute->goto, $other);
                             if ($other[1] === 'with' && $product->mount_attribute->goto === true) {
                                 $filteredProducts[] = $product;
                             } elseif ($other[1] === 'not' && $product->mount_attribute->goto === false) {

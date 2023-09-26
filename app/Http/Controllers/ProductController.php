@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Services\FilterProductsService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
-use App\Models\Product;
 
 class ProductController extends Controller
 {
