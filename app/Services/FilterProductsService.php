@@ -76,7 +76,15 @@ class FilterProductsService
                 $filteredProducts = $products;
             }
         } else {
-            $filteredProducts = $products;
+            if (count($other) > 0 && ($other[0] !== 'default')) {
+                foreach ($products as $key => $product) {
+                    if ($product->ocular_attribute->model === $other[0]) {
+                        $filteredProducts[] = $product;
+                    }
+                }
+            } else {
+                $filteredProducts = $products;
+            }
         }
 
         return $filteredProducts;

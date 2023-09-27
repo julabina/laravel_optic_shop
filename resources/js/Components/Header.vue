@@ -43,7 +43,7 @@
             </div>
             <nav class="absolute flex items-center h-9">
                 <Link :href="route('product.list', { cat: 'telescope' })" class="flex items-center h-full px-5 hover:bg-primary">Télescopes</Link>
-                <Link :href="route('product.list', { cat: 'oculaire' })" class="flex items-center h-full px-5 hover:bg-primary">Occulaires</Link>
+                <Link :href="route('product.list', { cat: 'oculaire' })" class="flex items-center h-full px-5 hover:bg-primary">Oculaires</Link>
                 <Link :href="route('product.list', { cat: 'monture' })" class="flex items-center h-full px-5 hover:bg-primary">Montures</Link>
                 <Link :href="route('product.discountList')" class="flex items-center h-full px-5 hover:bg-primary">Promotions</Link>
             </nav>

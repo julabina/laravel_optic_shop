@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Models\Brand;
 use App\Models\MountAttribute;
+use App\Models\OcularAttribute;
 use App\Models\Product;
 use App\Models\ProductPicture;
 use App\Models\TelescopeAttribute;
@@ -294,5 +295,102 @@ it('Filter mount products by withGoTo', function () {
     expect(count($filteredProducts))->toBe(2);
     expect($filteredProducts[0]->mount_attribute->goto)->toBe(false);
     expect($filteredProducts[1]->mount_attribute->goto)->toBe(false);
+
+});
+
+it('Filter ocular products by brands', function () {
+    $filterService = new FilterProductsService();
+
+    $brand = Brand::factory()->create();
+    $selectedBrand = Brand::factory()->create([
+        'name' => 'orion',
+    ]);
+
+    $p = Product::factory(5)->create([
+        'category' => 'oculaire',
+        'brand_id' => $brand->id,
+    ]);
+
+    $selectedProduct = Product::factory(2)->create([
+        'category' => 'oculaire',
+        'brand_id' => $selectedBrand->id,
+    ]);
+
+    foreach ($p as $key => $product) {
+        ProductPicture::factory()->create([
+            'product_id' => $product->id,
+        ]);
+
+        OcularAttribute::factory()->create([
+            'product_id' => $product->id,
+        ]);
+    }
+
+    foreach ($selectedProduct as $key => $product) {
+        ProductPicture::factory()->create([
+            'product_id' => $product->id,
+        ]);
+
+        OcularAttribute::factory()->create([
+            'product_id' => $product->id,
+        ]);
+    }
+
+    $filteredProducts = $filterService->filter('oculaire', ['orion'], false, ['default']);
+
+    expect(count($filteredProducts))->toBe(2);
+    expect($filteredProducts[0]->brand_id)->toBe($selectedBrand->id);
+    expect($filteredProducts[1]->brand_id)->toBe($selectedBrand->id);
+
+});
+
+/*
+    FAIL TESTS
+*/
+
+it('Fail filter ocular products by brands', function () {
+    $filterService = new FilterProductsService();
+
+    $brand = Brand::factory()->create();
+    $brandFail = Brand::factory()->create([
+        'name' => 'failTest',
+    ]);
+    $selectedBrand = Brand::factory()->create([
+        'name' => 'orion',
+    ]);
+
+    $p = Product::factory(5)->create([
+        'category' => 'oculaire',
+        'brand_id' => $brand->id,
+    ]);
+
+    $selectedProduct = Product::factory(2)->create([
+        'category' => 'oculaire',
+        'brand_id' => $selectedBrand->id,
+    ]);
+
+    foreach ($p as $key => $product) {
+        ProductPicture::factory()->create([
+            'product_id' => $product->id,
+        ]);
+
+        OcularAttribute::factory()->create([
+            'product_id' => $product->id,
+        ]);
+    }
+
+    foreach ($selectedProduct as $key => $product) {
+        ProductPicture::factory()->create([
+            'product_id' => $product->id,
+        ]);
+
+        OcularAttribute::factory()->create([
+            'product_id' => $product->id,
+        ]);
+    }
+
+    $filteredProducts = $filterService->filter('oculaire', ['failTest'], false, ['default']);
+
+    expect(count($filteredProducts))->toBe(0);
 
 });
