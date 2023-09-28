@@ -64,6 +64,14 @@ class Product extends Model
     {
         return $this->hasMany(ProductDescription::class);
     }
+    
+    /**
+     * @return HasMany<Comment>
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
 
     /**
      * @return HasOne<TelescopeAttribute>

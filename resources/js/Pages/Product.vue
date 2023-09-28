@@ -61,7 +61,13 @@
                 <div v-if="currentTab === 2" class="flex flex-col items-center">
                     <ProductStats :product="product" :category="category"/>
                 </div>
-                <div v-if="currentTab === 3" class="flex flex-col items-center"></div>
+                <div v-if="currentTab === 3" class="flex flex-col items-center pt-12">
+                    <textarea class="resize-none w-[600px] min-h-[200px] border-none rounded-md leading-6 tracking-wider p-5"></textarea>
+                    <button v-if="$page.props.auth.user" class="btn-primary px-2.5 mt-6">Envoyer</button>
+                    <p v-else class="mt-5">Vous devez etre connecté pour envoyer un commentaire.</p>
+                    <div class="border-b w-[600px] mt-12 border-grayTrans mb-12"></div>
+                    <p class="uppercase mb-10">Pas encore de commentaires</p>
+                </div>
             </section>
         </div>
         
