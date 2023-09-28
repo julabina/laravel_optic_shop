@@ -27,7 +27,7 @@ it('Display telescope product page', function () {
         'type' => 'newton',
     ]);
 
-    $p = Product::where('id', $product->id)->with('picture', 'telescope_attribute', 'descriptions', 'brand')->first();
+    $p = Product::where('id', $product->id)->with('picture', 'telescope_attribute', 'descriptions', 'brand', 'comments.user')->first();
     $response = $this->get(route('product.show', ['cat' => 'telescope', 'id' => $product->id]));
 
     $response
@@ -36,6 +36,7 @@ it('Display telescope product page', function () {
             ->component('Product')
             ->where('category', 'telescope')
             ->where('product', $p)
+            ->where('commentTab', false)
         );
 });
 
@@ -56,7 +57,7 @@ it('Display mount product page', function () {
         'type' => 'azimutale',
     ]);
 
-    $p = Product::where('id', $product->id)->with('picture', 'mount_attribute', 'descriptions', 'brand')->first();
+    $p = Product::where('id', $product->id)->with('picture', 'mount_attribute', 'descriptions', 'brand', 'comments.user')->first();
     $response = $this->get(route('product.show', ['cat' => 'monture', 'id' => $product->id]));
 
     $response
@@ -65,6 +66,7 @@ it('Display mount product page', function () {
             ->component('Product')
             ->where('category', 'monture')
             ->where('product', $p)
+            ->where('commentTab', false)
         );
 });
 
@@ -84,7 +86,7 @@ it('Display ocular product page', function () {
         'product_id' => $product->id,
     ]);
 
-    $p = Product::where('id', $product->id)->with('picture', 'ocular_attribute', 'descriptions', 'brand')->first();
+    $p = Product::where('id', $product->id)->with('picture', 'ocular_attribute', 'descriptions', 'brand', 'comments.user')->first();
     $response = $this->get(route('product.show', ['cat' => 'oculaire', 'id' => $product->id]));
 
     $response
@@ -93,5 +95,6 @@ it('Display ocular product page', function () {
             ->component('Product')
             ->where('category', 'oculaire')
             ->where('product', $p)
+            ->where('commentTab', false)
         );
 });

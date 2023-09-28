@@ -55,8 +55,8 @@ it('Filter products by brands', function () {
     $filteredProducts = $filterService->filter('telescope', ['skywatcher'], false, []);
 
     expect(count($filteredProducts))->toBe(2);
-    expect($filteredProducts[0]->brand_id)->toBe(2);
-    expect($filteredProducts[1]->brand_id)->toBe(2);
+    expect($filteredProducts[0]->brand_id)->toBe($selectedBrand->id);
+    expect($filteredProducts[1]->brand_id)->toBe($selectedBrand->id);
 
 });
 

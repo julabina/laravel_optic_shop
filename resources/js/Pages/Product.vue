@@ -62,27 +62,32 @@
                     <ProductStats :product="product" :category="category"/>
                 </div>
                 <div v-if="currentTab === 3" class="flex flex-col items-center pt-12">
-                    <textarea class="resize-none w-[600px] min-h-[200px] border-none rounded-md leading-6 tracking-wider p-5"></textarea>
-                    <button v-if="$page.props.auth.user" class="btn-primary px-2.5 mt-6">Envoyer</button>
+                    <textarea v-model="newComment" class="resize-none w-[600px] min-h-[200px] border-none rounded-md leading-6 tracking-wider p-5"></textarea>
+                    <p class="text-error min-h-[20px]">{{ newCommentError }}</p>
+                    <button @click="sendNewComment" v-if="$page.props.auth.user" class="btn-primary px-2.5 mt-2">Envoyer</button>
                     <p v-else class="mt-5">Vous devez etre connecté pour envoyer un commentaire.</p>
                     <div class="border-b w-[600px] mt-12 border-grayTrans mb-12"></div>
-                    <p class="uppercase mb-10">Pas encore de commentaires</p>
+                    <div v-if="comments.length > 0" class="">
+                        <Comment v-for="(comment, ind) in comments" :key="'commentComp' + ind" :comment="comment" :category="category" />
+                    </div>
+                    <p v-else class="uppercase mb-10">Pas encore de commentaires</p>
                 </div>
             </section>
         </div>
-        
     </AuthenticatedLayout>
 </template>
 
 <script setup>
+    import Comment from '@/Components/Comment.vue';
     import ProductStats from '@/Components/ProductStats.vue';
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-    import { Head, Link } from '@inertiajs/vue3';
+    import { Head, Link, router } from '@inertiajs/vue3';
     import { ref, onMounted } from 'vue';
 
     const props = defineProps({
         product: Object,
         category: String,
+        commentTab: Boolean,
     });
 
     const priceWithoutDiscount = ref(null);
@@ -91,8 +96,12 @@
     const mainPicture = ref(null);
     const mainPictureIndex = ref(0);
     const currentTab = ref(1);
+    const comments = ref([]);
+    const newComment = ref('');
+    const newCommentError = ref('');
 
     onMounted(() => {
+        console.log(props.product);
         if (props.product.onDiscount === true) {
             price.value = props.product.price - ((props.product.price / 100) * props.product.discountValue);
             priceWithoutDiscount.value = props.product.price;
@@ -105,13 +114,43 @@
         }
 
         mainPicture.value = props.product.picture[0].path;
+
+        if (props.product.comments.length > 0) {
+            comments.value = props.product.comments;
+
+            if (props.product.comments.length > 1) {   
+                comments.value.sort(function(a, b){
+                    console.log(a, b);
+                    return new Date(b.updated_at) - new Date(a.updated_at);
+                });
+            }
+        }
+
+        if (props.commentTab === true) {
+            currentTab.value = 3;
+        }
     });
-    console.log(props.product);
 
     const updateMainPicture = (index) => {
         if (mainPictureIndex !== index) {
             mainPictureIndex.value = index;
             mainPicture.value = props.product.picture[index].path;
         }
+    };
+
+    const sendNewComment = () => {
+        newCommentError.value = '';
+
+        if (newComment.value === '') {
+            return newCommentError.value = 'Le commentaire ne doit pas être vide.';
+        } else if (newComment.value.length > 254) {
+            return newCommentError.value = 'Le commentaire ne doit pas dépasser 254 caractères (' + newComment.value.length + ' actuellement).';
+        } else {
+            return router.visit(route('comment.store', { cat: props.product.category , id: props.product.id }), {
+                method: 'post',
+                data: { content: newComment.value },
+            });
+        }
+        
     };
 </script>

@@ -44,7 +44,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function show(string $cat, int $id): Response
+    public function show(string $cat, int $id, Request $request): Response
     {
         if ($cat === 'monture') {
             $attribute = 'mount_attribute';
@@ -54,11 +54,18 @@ class ProductController extends Controller
             $attribute = $cat.'_attribute';
         }
 
-        $product = Product::where('id', $id)->with('picture', $attribute, 'descriptions', 'brand')->first();
+        $product = Product::where('id', $id)->with('picture', $attribute, 'descriptions', 'brand', 'comments.user')->first();
+
+        $commentTab = false;
+
+        if ($request->session()->has('commentTab')) {
+            $commentTab = $request->session()->pull('commentTab');
+        }
 
         return Inertia::render('Product', [
             'product' => $product,
             'category' => $cat,
+            'commentTab' => $commentTab,
         ]);
     }
 

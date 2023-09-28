@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -27,6 +28,13 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// COMMENTS ROUTES
+Route::prefix('comment')->as('comment.')->middleware(['auth'])->controller(CommentController::class)->group(function () {
+    Route::post('/store/{cat}/{id}', 'store')->name('store');
+    Route::delete('/delete/{cat}/{id}', 'delete')->name('delete');
+    Route::put('/edit/{cat}/{id}', 'edit')->name('edit');
+});
 
 Route::get('/{cat}', [ProductController::class, 'list'])->name('product.list');
 Route::post('/{cat}', [ProductController::class, 'filter'])->name('product.filter');
