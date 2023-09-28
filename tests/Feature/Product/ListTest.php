@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Brand;
 use App\Models\MountAttribute;
+use App\Models\OcularAttribute;
 use App\Models\Product;
 use App\Models\ProductPicture;
 use App\Models\TelescopeAttribute;
@@ -89,7 +90,7 @@ it('Display ocular list page', function () {
             'product_id' => $product->id,
         ]);
 
-        MountAttribute::factory()->create([
+        OcularAttribute::factory()->create([
             'product_id' => $product->id,
         ]);
     }
