@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CartController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 
 Route::prefix('panier')->as('cart.')->controller(CartController::class)->group(function () {
     Route::post('/store/{id}/{count}', 'store')->name('store');
+    Route::get('/', 'show')->name('show');
 });
 
 require __DIR__.'/auth.php';

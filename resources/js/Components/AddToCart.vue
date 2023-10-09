@@ -10,7 +10,9 @@
                 <p class="w-3/5 text-center">Prix total: <span class="text-tertiary font-bold text-lg">{{ (price * product[1]).toFixed(2) }} €</span></p>
                 <div class="flex justify-between w-4/5 mt-8">
                     <button @click="toggleModal = false" class="btn-primary px-3">Continuer les achats</button>
-                    <button class="btn-primary px-3 bg-tertiary">Votre panier</button>
+                    <Link :href="route('cart.show')">
+                        <button class="btn-primary px-3 bg-tertiary">Votre panier</button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -18,6 +20,7 @@
 </template>
 
 <script setup>
+    import { Link } from '@inertiajs/vue3';
     import { onMounted, ref } from 'vue';
 
     const toggleModal = ref(true);

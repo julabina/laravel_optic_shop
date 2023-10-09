@@ -37,7 +37,7 @@
                     <p class="uppercase">Contact</p>
                 </div>
             </Link>
-            <Link :href="route('home')">
+            <Link :href="route('cart.show')">
                 <div class="relative flex flex-col items-center justify-between py-1 border-r border-white border-opacity-50 h-12 w-24 text-sm text-white cursor-pointer transition-colors hover:transition-colors hover:text-tertiary">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <p class="uppercase">600.00 €</p>

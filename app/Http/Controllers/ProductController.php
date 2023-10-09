@@ -38,7 +38,7 @@ class ProductController extends Controller
             if ($productAdded !== null && $productAdded->stock > 0) {
                 $newAddToCart = [
                     $productAdded,
-                    $newAdd[1]
+                    $newAdd[1],
                 ];
             }
         }
