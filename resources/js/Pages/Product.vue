@@ -36,7 +36,7 @@
                                 <p :class="product.stock === 0 ? 'flex items-center justify-center h-14 w-28 text-center border border-gray-200 text-gray-500 select-none' : 'flex items-center justify-center h-14 w-28 text-center border border-gray-200 select-none'">{{ inputValue }}</p>
                                 <button @click="product.stock > 0 && inputValue++" :class="inputValue === product.stock ? 'bg-gray-100 h-14 w-14 font-bold text-2xl pb-.5 py-0 opacity-50 pointer-events-none' : 'bg-gray-200 bg-opacity-70 h-14 w-14 font-bold text-2xl pb-.5 py-0 transition-colors hover:transition-colors hover:bg-gray-300'">+</button>
                             </div>
-                            <button class="btn-primary h-14 ml-5 w-screen text-xl tracking-widest">
+                            <button @click="product.stock > 0 && addToCart()" class="btn-primary h-14 ml-5 w-screen text-xl tracking-widest">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 Ajouter au panier
                             </button>
@@ -151,5 +151,13 @@
             });
         }
         
+    };
+
+    const addToCart = () => {
+        if (props.product.stock > 0) {
+            router.visit(route('cart.store', { id: props.product.id, count: inputValue.value }), {
+                method: 'post',
+            });
+        }
     };
 </script>

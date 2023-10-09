@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-    import { Link } from '@inertiajs/vue3';
+    import { Link, router } from '@inertiajs/vue3';
     import { ref, onMounted } from 'vue';
 
     const inputValue = ref(1);
@@ -36,6 +36,10 @@
     });
 
     const addToCart = () => {
-
+        if (props.product.stock > 0) {
+            router.visit(route('cart.store', { id: props.product.id, count: inputValue.value }), {
+                method: 'post',
+            });
+        }
     };
 </script>
