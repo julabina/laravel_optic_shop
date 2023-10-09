@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Services\FilterProductsService;
+use App\Services\LastSeeService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -14,6 +15,7 @@ class ProductController extends Controller
     public function list(string $cat, Request $request): Response
     {
         $filterService = new FilterProductsService();
+        $lastSeeService = new LastSeeService();
 
         $filterBrands = [];
         $filterOther = [];
@@ -30,6 +32,7 @@ class ProductController extends Controller
         }
 
         $products = $filterService->filter($cat, $filterBrands, $onStock, $filterOther);
+        $lastSee = $lastSeeService->getLastSeeProducts();
 
         if ($cat === 'monture' && isset($filterOther[0]) === false) {
             $filterOther[0] = [];
@@ -41,11 +44,14 @@ class ProductController extends Controller
             'filterBrands' => $filterBrands,
             'filterOnStock' => $onStock,
             'filterOther' => $filterOther,
+            'lastSee' => $lastSee,
         ]);
     }
 
     public function show(string $cat, int $id, Request $request): Response
     {
+        $lastSeeService = new LastSeeService();
+
         if ($cat === 'monture') {
             $attribute = 'mount_attribute';
         } elseif ($cat === 'oculaire') {
@@ -55,6 +61,7 @@ class ProductController extends Controller
         }
 
         $product = Product::where('id', $id)->with('picture', $attribute, 'descriptions', 'brand', 'comments.user')->first();
+        $lastSeeService->setCookie($product->id);
 
         $commentTab = false;
 

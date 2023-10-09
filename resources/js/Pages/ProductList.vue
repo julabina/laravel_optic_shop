@@ -92,6 +92,12 @@
                         <p class="">Aucun<span v-if="category === 'monture'">e</span> {{ category === 'telescope' ? 'télescope' : category }} ne correspond à la recherche</p>
                     </div>
                 </div>
+                <div class="border-t py-4 mt-20 pt-16">
+                    <h2 class="text-3xl mb-12">articles vus récemment</h2>
+                    <div class="flex flex-wrap gap-y-6 gap-x-3 w-full">
+                        <ProductCard v-for="(see, ind) in lastSee" :key="'productLastSee' + ind" :product="see" />
+                    </div>
+                </div>
             </section>
         </div>
     </AuthenticatedLayout>
@@ -120,10 +126,12 @@
         filterBrands: Array,
         filterOnStock: Boolean,
         filterOther: Array,
+        lastSee: Array,
     });
 
     onMounted(() => {
         console.log(props.filterOther);
+        console.log(props.lastSee);
         productsFiltered.value = props.products.sort((a, b) => (a.name > b.name));
         toggleModelBrand.value = false;
 

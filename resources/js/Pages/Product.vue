@@ -101,7 +101,6 @@
     const newCommentError = ref('');
 
     onMounted(() => {
-        console.log(props.product);
         if (props.product.onDiscount === true) {
             price.value = props.product.price - ((props.product.price / 100) * props.product.discountValue);
             priceWithoutDiscount.value = props.product.price;
