@@ -99,12 +99,14 @@
                     </div>
                 </div>
             </section>
+            <AddToCart v-if="newAddToCart.length > 0" :product="newAddToCart" />
         </div>
     </AuthenticatedLayout>
 </template>
 
 <script setup>
-    import ProductCard from '@/Components/ProductCard.vue';
+    import AddToCart from '@/Components/AddToCart.vue';
+import ProductCard from '@/Components/ProductCard.vue';
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
     import { Head, Link, router } from '@inertiajs/vue3';
     import { ref, onMounted } from 'vue';
@@ -127,11 +129,10 @@
         filterOnStock: Boolean,
         filterOther: Array,
         lastSee: Array,
+        newAddToCart: Array,
     });
 
     onMounted(() => {
-        console.log(props.filterOther);
-        console.log(props.lastSee);
         productsFiltered.value = props.products.sort((a, b) => (a.name > b.name));
         toggleModelBrand.value = false;
 

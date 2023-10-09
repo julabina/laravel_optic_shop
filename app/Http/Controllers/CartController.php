@@ -9,7 +9,7 @@ use Cookie;
 
 class CartController extends Controller
 {
-    public function store(int $id, int $count)
+    public function store(int $id, int $count, Request $request)
     {
         $product = Product::find($id);
 
@@ -50,6 +50,8 @@ class CartController extends Controller
             $newValue = implode(' ', $cartArray);
             
             Cookie::queue(cookie('laravel_optique_cart', $newValue, 129600));
+
+            $request->session()->put('newAddToCart', [$id, $count]);
         }
 
         return back();

@@ -19,6 +19,7 @@ class ProductController extends Controller
 
         $filterBrands = [];
         $filterOther = [];
+        $newAddToCart = [];
         $onStock = false;
 
         if ($request->session()->has('filterBrand')) {
@@ -29,6 +30,17 @@ class ProductController extends Controller
         }
         if ($request->session()->has('filterOther')) {
             $filterOther = $request->session()->pull('filterOther');
+        }
+        if ($request->session()->has('newAddToCart')) {
+            $newAdd = $request->session()->pull('newAddToCart');
+            $productAdded = Product::find($newAdd[0]);
+
+            if ($productAdded !== null && $productAdded->stock > 0) {
+                $newAddToCart = [
+                    $productAdded,
+                    $newAdd[1]
+                ];
+            }
         }
 
         $products = $filterService->filter($cat, $filterBrands, $onStock, $filterOther);
@@ -45,6 +57,7 @@ class ProductController extends Controller
             'filterOnStock' => $onStock,
             'filterOther' => $filterOther,
             'lastSee' => $lastSee,
+            'newAddToCart' => $newAddToCart,
         ]);
     }
 
