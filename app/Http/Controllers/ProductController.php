@@ -89,9 +89,33 @@ class ProductController extends Controller
         ]);
     }
 
-    public function discountList(): Response
+    public function discountList(Request $request): Response
     {
-        return Inertia::render('discountList');
+        $lastSeeService = new LastSeeService();
+
+        $newAddToCart = [];
+
+        if ($request->session()->has('newAddToCart')) {
+            $newAdd = $request->session()->pull('newAddToCart');
+            $productAdded = Product::find($newAdd[0]);
+
+            if ($productAdded !== null && $productAdded->stock > 0) {
+                $newAddToCart = [
+                    $productAdded,
+                    $newAdd[1],
+                ];
+            }
+        }
+
+        $discountProducts = Product::where('onDiscount', true)->with('picture')->get();
+
+        $lastSee = $lastSeeService->getLastSeeProducts();
+
+        return Inertia::render('DiscountList', [
+            'products' => $discountProducts,
+            'lastSee' => $lastSee,
+            'newAddToCart' => $newAddToCart,
+        ]);
     }
 
     public function filter(string $cat, Request $request): RedirectResponse
