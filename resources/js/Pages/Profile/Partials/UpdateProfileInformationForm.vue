@@ -1,102 +1,166 @@
-<script setup>
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { Link, useForm, usePage } from '@inertiajs/vue3';
-
-defineProps({
-    mustVerifyEmail: {
-        type: Boolean,
-    },
-    status: {
-        type: String,
-    },
-});
-
-const user = usePage().props.auth.user;
-
-const form = useForm({
-    name: user.name,
-    email: user.email,
-});
-</script>
-
 <template>
-    <section>
-        <header>
-            <h2 class="text-lg font-medium text-gray-900">Profile Information</h2>
-
-            <p class="mt-1 text-sm text-gray-600">
-                Update your account's profile information and email address.
-            </p>
-        </header>
-
-        <form @submit.prevent="form.patch(route('profile.update'))" class="mt-6 space-y-6">
-            <div>
-                <InputLabel for="name" value="Name" />
-
-                <TextInput
-                    id="name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    v-model="form.name"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
-
-                <InputError class="mt-2" :message="form.errors.name" />
+    <h2 class="text-3xl font-semibold text-center mb-24">Modifier vos infos personnelles</h2>
+    <div class="w-[630px] border-b border-grayTrans pb-20 mb-16">
+        <h3 class="text-md font-semibold mb-5">Vos coordonnées :</h3>
+        <div class="flex w-full">
+            <div class="flex flex-col w-[300px]">
+                <label for="userAddressProfilFormLastname" class="mt-5 mb-0.5">Nom</label>
+                <input v-model="address.lastname" type="text" id="userAddressProfilFormLastname">
             </div>
-
-            <div>
-                <InputLabel for="email" value="Email" />
-
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email" />
+            <div class="flex flex-col w-[300px] ml-[30px]">
+                <label for="userAddressProfilFormFirstname" class="mt-5 mb-0.5">Prenom</label>
+                <input v-model="address.firstname" type="text" id="userAddressProfilFormFirstname">
             </div>
+        </div>
+        <div class="flex w-full">
+            <div class="flex flex-col w-[300px]">
+                <label for="userAddressProfilFormAddress" class="mt-5 mb-0.5">Adresse</label>
+                <input v-model="address.address" type="text" id="userAddressProfilFormAddress">
+            </div>
+            <div class="flex flex-col w-[300px] ml-[30px]">
+                <label for="userAddressProfilFormAddressComp" class="mt-5 mb-0.5">Complément d'adresse</label>
+                <input v-model="address.addressComp" type="text" id="userAddressProfilFormAddressComp">
+            </div>
+        </div>
+        <div class="flex w-full">
+            <div class="flex flex-col w-[300px]">
+                <label for="userAddressProfilFormPostal" class="mt-5 mb-0.5">Code postal</label>
+                <input v-model="address.postal" type="text" id="userAddressProfilFormPostal">
+            </div>
+            <div class="flex flex-col w-[300px] ml-[30px]">
+                <label for="userAddressProfilFormCity" class="mt-5 mb-0.5">Ville</label>
+                <input v-model="address.city" type="text" id="userAddressProfilFormCity">
+            </div>
+        </div>
+        <div class="flex w-full">
+            <div class="flex flex-col w-[300px]">
+                <label for="userAddressProfilFormMobile" class="mt-5 mb-0.5">Mobile</label>
+                <input v-model="address.tel" type="text" id="userAddressProfilFormMobile">
+            </div>
+        </div>
+    </div>
 
-            <div v-if="mustVerifyEmail && user.email_verified_at === null">
-                <p class="text-sm mt-2 text-gray-800">
-                    Your email address is unverified.
-                    <Link
-                        :href="route('verification.send')"
-                        method="post"
-                        as="button"
-                        class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                        Click here to re-send the verification email.
-                    </Link>
-                </p>
-
-                <div
-                    v-show="status === 'verification-link-sent'"
-                    class="mt-2 font-medium text-sm text-green-600"
-                >
-                    A new verification link has been sent to your email address.
+    <div class="w-[630px] border-b border-grayTrans pb-20 mb-16">
+        <h3 class="text-md font-semibold mb-5">Votre status :</h3>
+        <div class="flex items-center mt-12">
+            <input class="ml-1" type="checkbox" v-model="isPro" id="isProForm">
+            <label class="ml-1.5" for="isProForm">Vous êtes un professionnel.</label>
+        </div>
+        <div v-if="isPro === true" class="mt-5">
+            <div class="flex items-center">
+                <input class="ml-1" type="checkbox" v-model="proInfos.vatfree" id="vatFreeForm">
+                <label class="ml-1.5" for="vatFreeForm">Vous ne facturez pas la TVA.</label>
+            </div>
+            <div class="flex w-full">
+                <div class="flex flex-col w-[300px]">
+                    <label for="userIsProForm" class="mt-5 mb-0.5">Nom de la société</label>
+                    <input v-model="proInfos.name" type="text" id="userIsProForm">
+                </div>
+                <div class="flex flex-col w-[300px] ml-[30px]">
+                    <label for="userIsProForm" class="mt-5 mb-0.5">Télécopie</label>
+                    <input v-model="proInfos.fax" type="text" id="userIsProForm">
                 </div>
             </div>
-
-            <div class="flex items-center gap-4">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
-
-                <Transition
-                    enter-active-class="transition ease-in-out"
-                    enter-from-class="opacity-0"
-                    leave-active-class="transition ease-in-out"
-                    leave-to-class="opacity-0"
-                >
-                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">Saved.</p>
-                </Transition>
+            <div class="flex w-full">
+                <div class="flex flex-col w-[300px]">
+                    <label for="userIsProForm" class="mt-5 mb-0.5">N° de SIRET</label>
+                    <input v-model="proInfos.siret" type="text" id="userIsProForm">
+                </div>
+                <div v-if="proInfos.vatfree === false" class="flex flex-col w-[300px] ml-[30px]">
+                    <label for="userIsProForm" class="mt-5 mb-0.5">N° de TVA intra-communautaire</label>
+                    <input v-model="proInfos.vat" type="text" id="userIsProForm">
+                </div>
             </div>
-        </form>
-    </section>
+        </div>
+    </div>
+
+    <div class="w-[630px] pb-20 mb-12">
+        <h3 class="text-md font-semibold mb-5">Adresse de livraison :</h3>
+        <div class="flex items-center mt-12">
+            <input class="ml-1" type="checkbox" v-model="sameDeliveyAddress" id="isDeleveryAdressSame">
+            <label class="ml-1.5" for="isDeleveryAdressSame">Utiliser la même adresse pour la livraison.</label>
+        </div>
+
+        <div v-if="sameDeliveyAddress === false">
+            <div class="flex w-full">
+                <div class="flex flex-col w-[300px]">
+                    <label for="userDeliveryAddressProfilFormAddress" class="mt-5 mb-0.5">Adresse</label>
+                    <input v-model="deliveryAddress.address" type="text" id="userDeliveryAddressProfilFormAddress">
+                </div>
+                <div class="flex flex-col w-[300px] ml-[30px]">
+                    <label for="userDeliveryAddressProfilFormAddressComp" class="mt-5 mb-0.5">Complément d'adresse</label>
+                    <input v-model="deliveryAddress.addressComp" type="text" id="userDeliveryAddressProfilFormAddressComp">
+                </div>
+            </div>
+            <div class="flex w-full">
+                <div class="flex flex-col w-[300px]">
+                    <label for="userDeliveryAddressProfilFormPostal" class="mt-5 mb-0.5">Code postal</label>
+                    <input v-model="deliveryAddress.postal" type="text" id="userDeliveryAddressProfilFormPostal">
+                </div>
+                <div class="flex flex-col w-[300px] ml-[30px]">
+                    <label for="userDeliveryAddressProfilFormCity" class="mt-5 mb-0.5">Ville</label>
+                    <input v-model="deliveryAddress.city" type="text" id="userDeliveryAddressProfilFormCity">
+                </div>
+            </div>
+        </div>
+        <div v-else-if="sameDeliveyAddress === true" class="w-1/2 mx-auto mt-12 italic text-gray-700">
+            <p>{{ address.address }}</p>
+            <p>{{ address.addressComp }}</p>
+            <p>{{ address.postal }} {{ address.city }}</p>
+        </div>
+    </div>
+
+    <button @click="submit" class="btn-primary text-xl px-6 h-12">Modifier</button>
 </template>
+
+<script setup>
+    import { onMounted, reactive, ref} from 'vue';
+
+    const props = defineProps({
+        mustVerifyEmail: Boolean,
+        status: String,
+        user: Object,
+    });
+
+    const isPro = ref(false);
+    const sameDeliveyAddress = ref(true);
+
+    const address = reactive({
+        firstname: "",
+        lastname: "",
+        address: "",
+        addressComp: "",
+        postal: "",
+        city: "",
+        tel: "",
+    });
+
+    const proInfos = reactive({
+        name: "",
+        fax: "",
+        siret: "",
+        vatfree: false,
+        vat: "",
+    });
+
+    const deliveryAddress = reactive({
+        address: "",
+        addressComp: "",
+        postal: "",
+        city: "",
+    });
+
+    onMounted(() => {
+        if (props.user.address !== null) {
+            
+        }
+
+        if (props.user.company !== null) {
+            
+        }
+    });
+
+    const submit = () => {
+
+    };
+</script>
