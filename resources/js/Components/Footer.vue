@@ -40,14 +40,11 @@
                 <div class="text-left leading-6 w-56 ml-10">
                     <h3 class="w-full border-b border-white pb-0.5 mb-2.5 uppercase font-semibold">Mentions légales</h3>
                     <ul class="text-sm">
-                        <Link href="">
+                        <Link :href="route('legals.show')">
                             <li class="transition-colors hover:text-gray-400 hover:transition-colors">Mentions légales</li>
                         </Link>
-                        <Link href="">
+                        <Link :href="route('legals.cgu')">
                             <li class="transition-colors hover:text-gray-400 hover:transition-colors">Condition générales d'utilisation</li>
-                        </Link>
-                        <Link href="">
-                            <li class="transition-colors hover:text-gray-400 hover:transition-colors">Gérer les cookies</li>
                         </Link>
                     </ul>
                 </div>

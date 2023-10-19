@@ -75,18 +75,18 @@ class CartController extends Controller
                     intval($valArr[0]),
                     intval($valArr[1]),
                 ];
-                
+
                 $cartItemIds[] = [
                     intval($valArr[0]),
                 ];
             }
-            
+
             sort($cartFinalArr);
             $cartFinalArr = array_values($cartFinalArr);
 
             $cartProducts = Product::whereIn('id', $cartItemIds)->with('picture')->get();
 
-            for ($i=0; $i < count($cartProducts); $i++) { 
+            for ($i = 0; $i < count($cartProducts); $i++) {
                 $productArr = [$cartProducts[$i]];
 
                 if ($cartFinalArr[$i][0] === $cartProducts[$i]->id) {

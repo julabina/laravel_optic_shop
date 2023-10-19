@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Feature;
+namespace Test\Feature\Product;
 
 use App\Models\Brand;
 use App\Models\MountAttribute;
