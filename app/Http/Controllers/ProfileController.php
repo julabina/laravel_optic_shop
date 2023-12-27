@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -10,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
-use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -19,7 +19,7 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): Response
     {
-        $message = "";
+        $message = '';
 
         if ($request->session()->has('profilMessage')) {
             $messages = $request->session()->pull('profilMessage');
@@ -51,23 +51,38 @@ class ProfileController extends Controller
         return Redirect::route('profile.edit');
     }
 
+    public function updateMail(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'password' => ['required', 'current_password'],
+            'email' => ['required', 'email'],
+        ]);
+
+        $user = $request->user();
+
+        $user->email = $request->email;
+        $user->save();
+
+        return Redirect(Route('profile.edit'));
+    }
+
     /**
      * Delete the user's account.
      */
     public function destroy(Request $request): RedirectResponse
     {
-        $request->validate([
-            'password' => ['required', 'current_password'],
-        ]);
+        /*  $request->validate([
+             'password' => ['required', 'current_password'],
+         ]);
 
-        $user = $request->user();
+         $user = $request->user();
 
-        Auth::logout();
+         Auth::logout();
 
-        $user->delete();
+         $user->delete();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+         $request->session()->invalidate();
+         $request->session()->regenerateToken(); */
 
         return Redirect::to('/');
     }

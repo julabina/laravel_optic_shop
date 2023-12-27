@@ -1,5 +1,5 @@
 <script setup>
-    import { useForm } from '@inertiajs/vue3';
+    import { router, useForm } from '@inertiajs/vue3';
     import { ref, onMounted } from 'vue';
 
     const toggleConfirEmailModal = ref(false);
@@ -22,7 +22,13 @@
         modalError.value = "";
 
         if (confirmPwd.value.length > 0) {
-            
+            router.visit(route('profile.updateMail'), {
+                method: 'put',
+                data: {
+                    password: confirmPwd.value,
+                    email: form.email,
+                }
+            })
         } else {
             modalError.value = "Mot de passe requis.";
         }

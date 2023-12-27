@@ -23,10 +23,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'show'])->name('home');
 Route::get('/promotion', [ProductController::class, 'discountList'])->name('product.discountList');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::as('profile.')->prefix('profile')->middleware('auth')->controller(ProfileController::class)->group(function () {
+    Route::get('/', 'edit')->name('edit');
+    Route::patch('/', 'update')->name('update');
+    Route::put('/email', 'updateMail')->name('updateMail');
+    Route::delete('/', 'destroy')->name('destroy');
 });
 
 Route::as('legals.')->controller(LegalController::class)->group(function () {

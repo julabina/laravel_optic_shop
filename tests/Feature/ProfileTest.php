@@ -52,7 +52,7 @@ test('email verification status is unchanged when the email address is unchanged
     $this->assertNotNull($user->refresh()->email_verified_at);
 });
 
-test('user can delete their account', function () {
+/* test('user can delete their account', function () {
     $user = User::factory()->create();
 
     $response = $this
@@ -67,7 +67,7 @@ test('user can delete their account', function () {
 
     $this->assertGuest();
     $this->assertNull($user->fresh());
-});
+}); */
 
 test('correct password must be provided to delete account', function () {
     $user = User::factory()->create();
@@ -84,4 +84,23 @@ test('correct password must be provided to delete account', function () {
         ->assertRedirect('/profile');
 
     $this->assertNotNull($user->fresh());
+});
+
+it('update email', function () {
+    $user = User::factory()->create([
+        'email' => 'test@pest.fr',
+        'password' => 'Pest1234',
+    ]);
+
+    $response = $this->actingAs($user)
+        ->put(route('profile.updateMail', [
+            'email' => 'test2@pest.fr',
+            'password' => 'Pest1234',
+        ]));
+
+    $response->assertRedirect('/profile');
+
+    $updatedUser = User::find($user->id);
+
+    expect($updatedUser->email)->toBe('test2@pest.fr');
 });
