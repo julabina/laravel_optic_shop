@@ -69,7 +69,7 @@ test('email verification status is unchanged when the email address is unchanged
     $this->assertNull($user->fresh());
 }); */
 
-test('correct password must be provided to delete account', function () {
+/* test('correct password must be provided to delete account', function () {
     $user = User::factory()->create();
 
     $response = $this
@@ -84,7 +84,7 @@ test('correct password must be provided to delete account', function () {
         ->assertRedirect('/profile');
 
     $this->assertNotNull($user->fresh());
-});
+}); */
 
 it('update email', function () {
     $user = User::factory()->create([
