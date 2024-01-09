@@ -44,14 +44,20 @@ class CartController extends Controller
 
             if ($exist === false) {
 
-                $value = $id.','.$count;
+                if ($product->onDiscount === true) {
+                    $priceVal = $product->price - (($product->price / 100) * $product->discountValue);
+                } else {
+                    $priceVal = $product->price;
+                }
+
+                $value = $id.','.$count.','.$priceVal;
 
                 $cartArray[] = $value;
             }
 
             $newValue = implode(' ', $cartArray);
 
-            Cookie::queue(cookie('laravel_optique_cart', $newValue, 129600));
+            Cookie::queue(cookie('laravel_optique_cart', $newValue, 129600, null, null, false, false));
 
             $request->session()->put('newAddToCart', [$id, $count]);
         }

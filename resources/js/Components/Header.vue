@@ -40,8 +40,8 @@
             <Link :href="route('cart.show')">
                 <div class="relative flex flex-col items-center justify-between py-1 border-r border-white border-opacity-50 h-12 w-24 text-sm text-white cursor-pointer transition-colors hover:transition-colors hover:text-tertiary">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <p class="uppercase">600.00 €</p>
-                    <p class="flex justify-center items-center absolute w-4 h-4 bg-tertiary rounded-full top-0 right-4 text-[0.65rem] font-bold text-white">10</p>
+                    <p class="uppercase">{{ headCart.total.toFixed(2) }} €</p>
+                    <p class="flex justify-center items-center absolute w-4 h-4 bg-tertiary rounded-full top-0 right-4 text-[0.65rem] font-bold text-white">{{ headCart.count }}</p>
                 </div>
             </Link>
         </div>
@@ -67,11 +67,42 @@
 
 <script setup>
     import { Link } from '@inertiajs/vue3';
+import { reactive } from 'vue';
     import { onMounted, ref, onBeforeUnmount } from 'vue';
 
     const scrollPosition = ref(0);
+    const headCart = reactive({
+        count: 0,
+        total: 0,
+    });
 
     onMounted(() => {
+        const cookies = document.cookie.split(';');
+
+        for (let index = 0; index < cookies.length; index++) {
+            const cArr = cookies[index].split('=');
+            
+            if (cArr[0].replace(' ', '') === "laravel_optique_cart") {
+                const decodedCookie = decodeURIComponent(cArr[1]);
+
+                const cart = decodedCookie.split(' ');
+                let count = 0;
+                let total = 0;
+
+                for (let i = 0; i < cart.length; i++) {
+                    const article = cart[i].split(",");
+
+                    const aCount = parseInt(article[1]);
+                   
+                    count += aCount;                  
+                    total += parseFloat(article[2]) * aCount;                  
+                }
+
+                headCart.count = count;
+                headCart.total = total;
+            }
+        }
+
         window.addEventListener('scroll', function () {
             scrollPosition.value = window.scrollY;
         })
