@@ -14,3 +14,7 @@ it('Store an article when there are no cookie', function () {
 
     expect(session('newAddToCart'))->toBe([$product->id, $count]);
 });
+
+/* it('delete articles from cart page', function () {
+    
+}) */

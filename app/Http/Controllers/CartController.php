@@ -113,4 +113,115 @@ class CartController extends Controller
             'articles' => $finalArr,
         ]);
     }
+
+    public function remove(int $id): RedirectResponse
+    {
+        $cart = Cookie::get('laravel_optique_cart');
+        $cartArr = [];
+
+        if ($cart !== null) {
+            $newArr = [];
+            $cartArr = explode(' ', $cart);
+
+            for ($i = 0; $i < count($cartArr); $i++) {
+                $artArr = explode(',', $cartArr[$i]);
+
+                if (intval($artArr[0]) !== $id) {
+                    $newArr[] = $cartArr[$i];
+                }
+            }
+
+            $newValue = implode(' ', $newArr);
+
+            Cookie::queue(cookie('laravel_optique_cart', $newValue, 129600, null, null, false, false));
+        }
+
+        return back();
+    }
+
+    public function updateAdd(Int $id): RedirectResponse
+    {
+        $product = Product::find($id);
+
+        if ($product !== null && $product->stock > 0) {
+            $cart = Cookie::get('laravel_optique_cart');
+            $cartArr = [];
+
+            if ($cart !== null) {
+                $newArr = [];
+                $cartArr = explode(' ', $cart);
+
+                for ($i = 0; $i < count($cartArr); $i++) {
+                    $artArr = explode(',', $cartArr[$i]);
+
+                    if (intval($artArr[0]) === $id) {
+                        $count = intval($artArr[1]);
+                        $count += 1;
+
+                        if ($count > $product->stock) {
+                            $artArr[1] = strval($product->stock);
+                        } else {
+                            $artArr[1] = strval($count);
+                        }
+
+                        $newArt = implode(',', $artArr);
+
+                        $newArr[] = $newArt;
+                    } else {
+                        $newArr[] = $cartArr[$i];
+                    }
+
+                }
+
+                $newValue = implode(' ', $newArr);
+
+                Cookie::queue(cookie('laravel_optique_cart', $newValue, 129600, null, null, false, false));
+            }
+        }
+
+        return back();
+    }
+    
+    public function updateRemove(Int $id): RedirectResponse
+    {
+        $product = Product::find($id);
+
+        if ($product !== null && $product->stock > 0) {
+            $cart = Cookie::get('laravel_optique_cart');
+            $cartArr = [];
+
+            if ($cart !== null) {
+                $newArr = [];
+                $cartArr = explode(' ', $cart);
+
+                for ($i = 0; $i < count($cartArr); $i++) {
+                    $artArr = explode(',', $cartArr[$i]);
+
+                    if (intval($artArr[0]) === $id) {
+                        $count = intval($artArr[1]);
+                        $count -= 1;
+
+                        if ($count <= 0) {
+                            $artArr[1] = "1";
+                        } else {
+                            $artArr[1] = strval($count);
+                        }
+
+                        $newArt = implode(',', $artArr);
+
+                        $newArr[] = $newArt;
+                    } else {
+                        $newArr[] = $cartArr[$i];
+                    }
+
+                }
+
+                $newValue = implode(' ', $newArr);
+
+                Cookie::queue(cookie('laravel_optique_cart', $newValue, 129600, null, null, false, false));
+            }
+        }
+
+        return back();
+    }
 }

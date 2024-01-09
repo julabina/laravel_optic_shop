@@ -38,6 +38,9 @@ Route::as('legals.')->controller(LegalController::class)->group(function () {
 Route::prefix('panier')->as('cart.')->controller(CartController::class)->group(function () {
     Route::post('/store/{id}/{count}', 'store')->name('store');
     Route::get('/', 'show')->name('show');
+    Route::delete('/{id}', 'remove')->name('remove');
+    Route::put('/add/{id}', 'updateAdd')->name('updateAdd');
+    Route::put('/remove/{id}', 'updateRemove')->name('updateRemove');
 });
 
 require __DIR__.'/auth.php';

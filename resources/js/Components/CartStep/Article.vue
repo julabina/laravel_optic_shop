@@ -9,10 +9,10 @@
         </div>
         <div class="flex items-center justify-center w-1/6">
             <div class="flex">
-                <button class="btn-primary h-8 w-8 p-0 m-0 text-lg rounded-none">-</button>
+                <button @click="updateRemoveArticle" class="btn-primary h-8 w-8 p-0 m-0 text-lg rounded-none">-</button>
                 <p class="flex items-center justify-center h-8 w-8 border-y border-grayTrans text-xs">{{ count }}</p>
-                <button class="btn-primary h-8 w-8 p-0 m-0 text-lg rounded-none">+</button>
-                <button class="ml-1.5 transition-opacity hover:transition-opacity hover:opacity-60"><i class="fa-solid fa-trash-can"></i></button>
+                <button @click="updateAddArticle" class="btn-primary h-8 w-8 p-0 m-0 text-lg rounded-none">+</button>
+                <button @click="deleteArticle" class="ml-1.5 transition-opacity hover:transition-opacity hover:opacity-60"><i class="fa-solid fa-trash-can"></i></button>
             </div>
         </div>
         <div class="flex items-center justify-end w-1/6 pr-1">
@@ -22,9 +22,9 @@
 </template>
 
 <script setup>
+    import { router } from '@inertiajs/vue3';
     import { onMounted, ref } from 'vue';
 
-    console.log(props.article);
     const count = ref(0);
 
     const props = defineProps({
@@ -34,4 +34,28 @@
     onMounted(() => {
         count.value = props.article[1];
     });
+
+    const deleteArticle = () => {
+        router.visit(route('cart.remove', {
+            id: props.article[0].id
+        }), {
+            method: 'delete',
+        })
+    };
+
+    const updateAddArticle = () => {
+        router.visit(route('cart.updateAdd', {
+            id: props.article[0].id
+        }), {
+            method: 'put',
+        })
+    };
+
+    const updateRemoveArticle = () => {
+        router.visit(route('cart.updateRemove', {
+            id: props.article[0].id
+        }), {
+            method: 'put',
+        })
+    };
 </script>
